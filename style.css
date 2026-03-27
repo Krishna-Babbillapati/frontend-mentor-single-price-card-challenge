@@ -14,8 +14,10 @@ body {
 }
 
 #card {
-    width: 700px;
-    height: 480px;
+    /* For mobile first approach, the card will take up the full width of the screen and stack vertically. The media query will set a fixed width and height for larger screens. */
+    /* so commented out the fixed width and height for mobile first approach. */
+    /* width: 700px;
+    height: 480px; */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -36,13 +38,18 @@ body {
     height: 55%;
     display: flex;
     color: white;
+    flex-direction: column;
+     /* For mobile first approach, the sections will stack vertically. The media query will change the flex direction to row for larger screens. */
 }
 
 #bottom-left-section {
     padding: 20px;
     padding-left: 40px;
     display: inline-block;
-    width: 50%;
+    /* For mobile first approach, the sections will take up the full width of the screen and stack vertically. The media query will set the width to 50% for larger screens. */
+    /* so commented out the width for mobile first approach. */
+    /* width: 50%; */
+    width: 100%;
     height: 100%;
     vertical-align: top;
     background-color: rgba(41, 170, 168, 0.9);
@@ -52,7 +59,10 @@ body {
     padding: 20px;
     padding-left: 40px;
     display: inline-block;
-    width: 50%;
+    /* For mobile first approach, the sections will take up the full width of the screen and stack vertically. The media query will set the width to 50% for larger screens. */
+    /* so commented out the width for mobile first approach. */
+    /* width: 50%; */
+    width: 100%;
     height: 100%;
     vertical-align: top;
     background-color: rgba(42, 178, 175, 0.8);
@@ -130,4 +140,36 @@ ul {
     font-size: 0.8rem;
     opacity: 0.8;
     line-height: 1.6;
+}
+
+/* desktop first approch - the media query is for mobile devices with a max width of 650px. 
+The card and its sections will take up the full width of the screen and stack vertically. */
+/* uncommenting the below media query for desktop first approach. Also uncomment the corresponding styles in above CSS rules */
+/* @media (max-width: 650px) {
+    #bottom-left-section, #bottom-right-section, #card {
+        width: 100%;
+        height: auto;
+    }
+
+    #bottom-section {
+        flex-direction: column;
+    }
+} */
+
+
+/* mobile first approach */
+@media (min-width: 576px) {
+    #card {
+        width: 550px;
+        height: 480px;
+    }
+
+    #bottom-left-section, #bottom-right-section {
+        width: 50%;
+        height: auto;
+    }
+
+     #bottom-section {
+        flex-direction: row;
+    }
 }
